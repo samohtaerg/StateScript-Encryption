@@ -90,7 +90,7 @@ subroutines
 	30: start_game
 }
 
-rule("")
+rule("This program has been deobfuscated.")
 {
 	event
 	{
@@ -128,7 +128,7 @@ rule("")
 	}
 }
 
-rule("全局设定")
+rule("")
 {
 	event
 	{
@@ -146,18 +146,15 @@ rule("全局设定")
 		Create Effect(All Players(All Teams), Good Aura, Custom Color((Cosine From Degrees(Global.var_k * 360) + 0.500) * 255, (
 			Cosine From Degrees(Global.var_k * 360 - 120) + 0.500) * 255, (Cosine From Degrees(Global.var_k * 360 - 240) + 0.500) * 255,
 			255), Vector(False, 50, False), 200, Visible To and Color);
-		Global.var_i = Array(Custom String("Brother~ Call someone in soon, 12 people can start the game"), Custom String(
-			"Hurry up and get people in~ I can’t wait~ 12 people can start."), Custom String(
-			"Can you hurry up.. I don’t like you, so I don’t want to bring people in. 12 people can open it?"), Custom String(
-			"It's so uncomfortable, let someone come in and help others~ 12 people can start dressing up"), Custom String(
-			"Kiss~ I like you the most~ You can start the game after 12 people are called~"));
-		Create HUD Text(Local Player, Custom String(
+		Global.var_i = Array(Custom String("哥哥~他们都是骗你的，按F就可以开始游戏，快开始玩吧"), Custom String("这就是为了拉人进来所以建立的工坊呀"), Custom String(
+			"当你拉到12个小傻瓜就可以一起上当受骗了呀"), Custom String(""), Custom String(""));
+		disabled Create HUD Text(Local Player, Custom String(
 			" \r\n\r\n{0}Angel: {1} Hurry up and bring friends in~ People are waiting for you to change my clothes\r\n~ Hurry up~ People can'{2}",
 			Hero Icon String(Global.constants[140.994]), Local Player, Custom String("t wait~! ! ! Exchange group: 939114819 \r\n\r\n")),
 			Null, Null, Top, 2, Custom Color((Cosine From Degrees(Global.var_k * 360) + 0.500) * 255, (Cosine From Degrees(
 			Global.var_k * 360 - 120) + 0.500) * 255, (Cosine From Degrees(Global.var_k * 360 - 240) + 0.500) * 255, 255), Null, Null,
 			Visible To String and Color, Default Visibility);
-		Create Progress Bar HUD Text(All Players(All Teams), Count Of(Filtered Array(All Players(All Teams), !Is Dummy Bot(
+		disabled Create Progress Bar HUD Text(All Players(All Teams), Count Of(Filtered Array(All Players(All Teams), !Is Dummy Bot(
 			Current Array Element))) / 0.120, Custom String(
 			"Only {0} people can unlock and dress up for angels\r\n\r\nYou can unlock and dress up for angels if you reach 12 people ",
 			12 - Count Of(Filtered Array(All Players(All Teams), !Is Dummy Bot(Current Array Element)))), Top, 5, Custom Color((
@@ -168,7 +165,7 @@ rule("全局设定")
 	}
 }
 
-rule("加入战局")
+rule("")
 {
 	event
 	{
@@ -205,13 +202,13 @@ rule("加入战局")
 		While(Entity Exists(Event Player));
 			Wait(Random Integer(2, 5), Ignore Condition);
 			Start Forcing Player Outlines(Event Player, All Players(All Teams), False, Color(Red), Default);
-			Small Message(Event Player, Custom String("{0}Angel: dear {1}~{2}", Hero Icon String(Global.constants[141.210]), Event Player,
+			Small Message(Event Player, Custom String("{0}天使姐姐:  {1}~{2}小宝贝", Hero Icon String(Global.constants[141.210]), Event Player,
 				Random Value In Array(Global.var_i)));
 		End;
 	}
 }
 
-rule("人物设定")
+rule("")
 {
 	event
 	{
@@ -230,8 +227,8 @@ rule("人物设定")
 
 	actions
 	{
-		If(String Contains(Custom String("{0}", Event Player), Custom String("红娘")) || String Contains(Custom String("{0}",
-			Event Player), Custom String("闪光")) || String Contains(Custom String("{0}", Event Player), Custom String("月老")));
+		If(String Contains(Custom String("{0}", Event Player), Custom String("Matchmaker")) || String Contains(Custom String("{0}",
+			Event Player), Custom String("Tracer")) || String Contains(Custom String("{0}", Event Player), Custom String("月老")));
 			Global.blacklisted = Event Player;
 		Else;
 			"eventPlayer.disableTextChat()\neventPlayer.disableVoiceChat(true, true, true)\neventPlayer.var_n = 20"
