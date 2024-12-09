@@ -2,7 +2,7 @@ settings
 {
 	main
 	{
-		Description: "6ABHJ 梆梆梆 敲敲LSP的头"
+		Description: "6ABHJ"
 	}
 
 	lobby
