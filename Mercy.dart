@@ -146,8 +146,8 @@ rule("")
 		Create Effect(All Players(All Teams), Good Aura, Custom Color((Cosine From Degrees(Global.var_k * 360) + 0.500) * 255, (
 			Cosine From Degrees(Global.var_k * 360 - 120) + 0.500) * 255, (Cosine From Degrees(Global.var_k * 360 - 240) + 0.500) * 255,
 			255), Vector(False, 50, False), 200, Visible To and Color);
-		Global.var_i = Array(Custom String("哥哥~他们都是骗你的，按F就可以开始游戏，快开始玩吧"), Custom String("这就是为了拉人进来所以建立的工坊呀"), Custom String(
-			"当你拉到12个小傻瓜就可以一起上当受骗了呀"), Custom String(""), Custom String(""));
+		Global.var_i = Array(Custom String(""), Custom String(""), Custom String(
+			""), Custom String(""), Custom String(""));
 		disabled Create HUD Text(Local Player, Custom String(
 			" \r\n\r\n{0}Angel: {1} Hurry up and bring friends in~ People are waiting for you to change my clothes\r\n~ Hurry up~ People can'{2}",
 			Hero Icon String(Global.constants[140.994]), Local Player, Custom String("t wait~! ! ! Exchange group: 939114819 \r\n\r\n")),
@@ -202,7 +202,7 @@ rule("")
 		While(Entity Exists(Event Player));
 			Wait(Random Integer(2, 5), Ignore Condition);
 			Start Forcing Player Outlines(Event Player, All Players(All Teams), False, Color(Red), Default);
-			Small Message(Event Player, Custom String("{0}天使姐姐:  {1}~{2}小宝贝", Hero Icon String(Global.constants[141.210]), Event Player,
+			Small Message(Event Player, Custom String("{0}:  {1}~{2}", Hero Icon String(Global.constants[141.210]), Event Player,
 				Random Value In Array(Global.var_i)));
 		End;
 	}
